@@ -1,49 +1,55 @@
-name: 'Policyer GitHub Action'
-author: 'Nir Adler'
-description: 'Run policyer as github action'
+name: "Policyer GitHub Action"
+author: "Nir Adler"
+description: "Run Policyer as github action"
 
 inputs:
   checks_path:
-    description: 'checks directory path'
-    default: 'checks'
+    description: "checks directory path"
+    default: "checks"
     required: false
   format:
-    description: 'output format'
-    required: false     
+    description: "output format"
+    required: false
   output_path:
-    description: 'output path'
-    required: false     
+    description: "output path"
+    required: false
   fail_on:
-    description: 'fail on'
-    required: false   
+    description: "fail on"
+    required: false
   fail_on_vale:
-    description: 'fail on value'
-    required: false  
+    description: "fail on value"
+    required: false
   filter:
-    description: 'filter'
-    required: false      
+    description: "filter"
+    required: false
   filter_flags:
-    description: 'filter flags'
-    required: false    
+    description: "filter flags"
+    required: false
   internal:
-    description: 'use internal checks'
-    required: false          
+    description: "use internal checks"
+    required: false
   verbose:
-    description: 'enable debug logs'
-    required: false    
+    description: "enable debug logs"
+    required: false
 
 outputs:
   results:
-    description: 'Run results'
+    description: "Run results"
 
 branding:
-  icon: 'anchor'
-  color: 'blue'
+  icon: "anchor"
+  color: "blue"
 
 runs:
-  using: 'docker'
-  image: 'docker://niradler/policyer:latest'
+  using: "docker"
+  image: "docker://niradler/policyer:latest"
   args:
-    - ${{ inputs.directory }}
-    - ${{ inputs.check }}
-
+    - ${{ inputs.checks_path }}
+    - ${{ inputs.format }}
+    - ${{ inputs.output_path }}
+    - ${{ inputs.fail_on }}
+    - ${{ inputs.fail_on_vale }}
+    - ${{ inputs.filter }}
+    - ${{ inputs.filter_flags }}
+    - ${{ inputs.internal }}
+    - ${{ inputs.verbose }}
