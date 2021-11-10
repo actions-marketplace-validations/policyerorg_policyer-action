@@ -1,0 +1,49 @@
+name: 'Policyer GitHub Action'
+author: 'Nir Adler'
+description: 'Run policyer as github action'
+
+inputs:
+  checks_path:
+    description: 'checks directory path'
+    default: 'checks'
+    required: false
+  format:
+    description: 'output format'
+    required: false     
+  output_path:
+    description: 'output path'
+    required: false     
+  fail_on:
+    description: 'fail on'
+    required: false   
+  fail_on_vale:
+    description: 'fail on value'
+    required: false  
+  filter:
+    description: 'filter'
+    required: false      
+  filter_flags:
+    description: 'filter flags'
+    required: false    
+  internal:
+    description: 'use internal checks'
+    required: false          
+  verbose:
+    description: 'enable debug logs'
+    required: false    
+
+outputs:
+  results:
+    description: 'Run results'
+
+branding:
+  icon: 'anchor'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'docker://niradler/policyer:latest'
+  args:
+    - ${{ inputs.directory }}
+    - ${{ inputs.check }}
+
