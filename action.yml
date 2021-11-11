@@ -5,7 +5,7 @@ description: "Run Policyer as github action"
 inputs:
   checks_path:
     description: "checks directory path"
-    default: "checks"
+    default: "./checks"
     required: false
   format:
     description: "output format"
@@ -31,6 +31,10 @@ inputs:
   verbose:
     description: "enable debug logs"
     required: false
+  provider:
+    description: "provider to install"
+    default: "policyer"
+    required: false    
 
 outputs:
   results:
@@ -53,3 +57,4 @@ runs:
     - ${{ inputs.filter_flags }}
     - ${{ inputs.internal }}
     - ${{ inputs.verbose }}
+    - ${{ inputs.provider }}    
