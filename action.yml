@@ -5,7 +5,7 @@ description: "Run Policyer as github action"
 inputs:
   checks_path:
     description: "checks directory path"
-    default: "checks"
+    default: "./checks"
     required: false
   format:
     description: "output format"
